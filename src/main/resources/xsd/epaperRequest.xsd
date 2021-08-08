@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="epaperRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="deviceInfo" type="deviceInfo"/>
+                <xs:element name="getPages" type="getPages"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="deviceInfo">
+        <xs:sequence>
+            <xs:element name="screenInfo" type="screenInfo"/>
+            <xs:element name="osInfo" type="osInfo"/>
+            <xs:element name="appInfo" type="appInfo"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required" />
+        <xs:attribute name="id" type="xs:string" use="required" />
+    </xs:complexType>
+    <xs:complexType name="screenInfo">
+        <xs:attribute name="width" type="xs:int" use="required" />
+        <xs:attribute name="height" type="xs:int" use="required" />
+        <xs:attribute name="dpi" type="xs:int" use="required" />
+    </xs:complexType>
+    <xs:complexType name="osInfo">
+        <xs:attribute name="name" type="xs:string" use="required" />
+        <xs:attribute name="version" type="xs:double" use="required" />
+    </xs:complexType>
+    <xs:complexType name="appInfo">
+        <xs:sequence>
+            <xs:element name="newspaperName" type="xs:string" />
+            <xs:element name="version" type="xs:double" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getPages">
+        <xs:attribute name="editionDefId" type="xs:long" use="required" />
+        <xs:attribute name="publicationDate" type="xs:date" use="required" />
+    </xs:complexType>
+</xs:schema>
