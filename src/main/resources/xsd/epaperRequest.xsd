@@ -19,9 +19,9 @@
         <xs:attribute name="id" type="xs:string" use="required" />
     </xs:complexType>
     <xs:complexType name="screenInfo">
-        <xs:attribute name="width" type="xs:int" use="required" />
-        <xs:attribute name="height" type="xs:int" use="required" />
-        <xs:attribute name="dpi" type="xs:int" use="required" />
+        <xs:attribute name="width" type="nonNegativeInt" use="required" />
+        <xs:attribute name="height" type="nonNegativeInt" use="required" />
+        <xs:attribute name="dpi" type="nonNegativeInt" use="required" />
     </xs:complexType>
     <xs:complexType name="osInfo">
         <xs:attribute name="name" type="xs:string" use="required" />
@@ -37,4 +37,10 @@
         <xs:attribute name="editionDefId" type="xs:long" use="required" />
         <xs:attribute name="publicationDate" type="xs:date" use="required" />
     </xs:complexType>
+    <xs:simpleType name='nonNegativeInt'>
+        <xs:restriction base='xs:int'>
+            <xs:minInclusive value='0'/>
+        </xs:restriction>
+    </xs:simpleType>
+
 </xs:schema>
